@@ -1,1 +1,714 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Daffa Alfarizi Irawan | Cyberpreneurship</title>
+
+    <meta name="description" content="Website personal Daffa Alfarizi Irawan untuk mata kuliah Cyberpreneurship.">
+
+    <style>
+        :root {
+            --bg: #07121c;
+            --bg-soft: #0b1b28;
+            --card: #102533;
+            --card-soft: #122c3c;
+            --azure: #168aad;
+            --cyan: #55c7d9;
+            --cyan-soft: #8bdde6;
+            --text: #e9f5f7;
+            --text-soft: #a9c2c8;
+            --border: rgba(85, 199, 217, 0.18);
+            --shadow: rgba(0, 0, 0, 0.35);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at 80% 10%, rgba(22, 138, 173, 0.12), transparent 30%),
+                radial-gradient(circle at 10% 40%, rgba(85, 199, 217, 0.07), transparent 25%),
+                var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* NAVBAR */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(7, 18, 28, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            max-width: 1150px;
+            margin: auto;
+            padding: 16px 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--cyan-soft);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--text-soft);
+            font-size: 14px;
+            transition: 0.25s;
+        }
+
+        .nav-links a:hover {
+            color: var(--cyan-soft);
+        }
+
+        /* GENERAL */
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 22px;
+        }
+
+        section {
+            padding: 90px 0;
+        }
+
+        .section-title {
+            margin-bottom: 35px;
+        }
+
+        .section-label {
+            color: var(--cyan);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-size: 34px;
+            line-height: 1.25;
+        }
+
+        h3 {
+            color: var(--cyan-soft);
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: var(--text-soft);
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            padding: 70px 0;
+        }
+
+        .hero-small {
+            display: inline-block;
+            color: var(--cyan);
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 8vw, 76px);
+            line-height: 1.05;
+            margin-bottom: 20px;
+            color: #f1fbfc;
+        }
+
+        .hero h1 span {
+            color: var(--cyan);
+        }
+
+        .hero-description {
+            max-width: 700px;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .identity-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .identity-item {
+            padding: 10px 15px;
+            background: rgba(16, 37, 51, 0.75);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-soft);
+            font-size: 14px;
+        }
+
+        .identity-item strong {
+            color: var(--cyan-soft);
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 7px;
+            border: 1px solid rgba(85, 199, 217, 0.35);
+            background: rgba(22, 138, 173, 0.18);
+            color: var(--cyan-soft);
+            transition: 0.25s;
+        }
+
+        .button:hover {
+            background: rgba(22, 138, 173, 0.35);
+            transform: translateY(-2px);
+        }
+
+        /* CARDS */
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            background: linear-gradient(
+                145deg,
+                rgba(16, 37, 51, 0.95),
+                rgba(10, 28, 40, 0.95)
+            );
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 12px 35px var(--shadow);
+        }
+
+        .card p {
+            font-size: 15px;
+        }
+
+        .card-number {
+            color: var(--cyan);
+            font-size: 13px;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        /* ABOUT */
+
+        .about-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(85, 199, 217, 0.1);
+            color: var(--text-soft);
+        }
+
+        .info-list strong {
+            color: var(--text);
+        }
+
+        /* MATERIAL */
+
+        .material-intro {
+            max-width: 850px;
+            margin-bottom: 35px;
+        }
+
+        .material-card {
+            margin-bottom: 18px;
+        }
+
+        .material-card h3 {
+            font-size: 21px;
+        }
+
+        .material-card ul {
+            margin: 12px 0 0 20px;
+            color: var(--text-soft);
+        }
+
+        .material-card li {
+            margin-bottom: 6px;
+        }
+
+        .highlight {
+            border-left: 3px solid var(--cyan);
+            padding: 18px 20px;
+            margin: 20px 0;
+            background: rgba(22, 138, 173, 0.08);
+            color: var(--text-soft);
+        }
+
+        /* BUSINESS */
+
+        .business-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        /* TECHNOLOGY */
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        /* VALUES */
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .value-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::after {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            right: -30px;
+            top: -30px;
+            background: rgba(85, 199, 217, 0.05);
+        }
+
+        /* FUTURE */
+
+        .future {
+            border: 1px dashed rgba(85, 199, 217, 0.3);
+            background: rgba(16, 37, 51, 0.35);
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        .future-items {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .future-item {
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            color: var(--text-soft);
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 30px 22px;
+            background: #050e16;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-content p {
+            font-size: 14px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 850px) {
+            .grid,
+            .value-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about-box,
+            .business-grid,
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: auto;
+            }
+
+            section {
+                padding: 70px 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .grid,
+            .value-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 44px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav>
+            <a href="#beranda" class="logo">DAI.</a>
+
+            <ul class="nav-links">
+                <li><a href="#beranda">Beranda</a></li>
+                <li><a href="#tentang">Tentang Saya</a></li>
+                <li><a href="#materi">Materi</a></li>
+                <li><a href="#bisnis">Bisnis Online</a></li>
+                <li><a href="#revolusi">Revolusi 4.0</a></li>
+                <li><a href="#nilai">Kebudiluhuran</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- BERANDA -->
+    <main>
+
+        <section id="beranda" class="hero">
+            <div class="container">
+                <div class="hero-content">
+
+                    <span class="hero-small">
+                        Cyberpreneurship • Pertemuan 01
+                    </span>
+
+                    <h1>
+                        Daffa Alfarizi<br>
+                        <span>Irawan.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Website personal untuk dokumentasi pembelajaran
+                        mata kuliah Cyberpreneurship. Website ini membahas
+                        pengenalan cyberpreneurship, bisnis online,
+                        Revolusi Industri 4.0, dan nilai Kebudiluhuran.
+                    </p>
+
+                    <div class="identity-box">
+                        <div class="identity-item">
+                            <strong>NIM:</strong> 2412501674
+                        </div>
+
+                        <div class="identity-item">
+                            <strong>Mata Kuliah:</strong> Cyberpreneurship
+                        </div>
+
+                        <div class="identity-item">
+                            <strong>Universitas:</strong> Universitas Budi Luhur
+                        </div>
+                    </div>
+
+                    <a href="#materi" class="button">
+                        Lihat Materi
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- TENTANG -->
+        <section id="tentang">
+            <div class="container">
+
+                <div class="section-title">
+                    <div class="section-label">01 • Personal</div>
+                    <h2>Tentang Saya</h2>
+                </div>
+
+                <div class="about-box">
+
+                    <div class="card">
+                        <h3>Daffa Alfarizi Irawan</h3>
+
+                        <p>
+                            Saya adalah mahasiswa yang sedang mengerjakan
+                            tugas mata kuliah Cyberpreneurship.
+                            Website ini digunakan sebagai media untuk
+                            menyajikan materi pembelajaran Pertemuan 1.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <ul class="info-list">
+                            <li>
+                                <strong>Nama:</strong>
+                                Daffa Alfarizi Irawan
+                            </li>
+
+                            <li>
+                                <strong>NIM:</strong>
+                                2412501674
+                            </li>
+
+                            <li>
+                                <strong>Mata Kuliah:</strong>
+                                Cyberpreneurship
+                            </li>
+
+                            <li>
+                                <strong>Universitas:</strong>
+                                Universitas Budi Luhur
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- MATERI -->
+        <section id="materi">
+            <div class="container">
+
+                <div class="section-title">
+                    <div class="section-label">02 • Pertemuan 1</div>
+                    <h2>Materi Cyberpreneurship</h2>
+                </div>
+
+                <div class="material-intro">
+                    <p>
+                        Cyberpreneurship berasal dari kata cyber dan
+                        entrepreneurship. Cyber berarti internet,
+                        sedangkan entrepreneurship berarti wirausaha.
+                        Cyberpreneurship dapat diartikan sebagai
+                        kewirausahaan melalui media internet.
+                    </p>
+
+                    <div class="highlight">
+                        Cyberpreneurship sering juga disebut sebagai
+                        bisnis online, yaitu bisnis yang dijalankan
+                        secara online melalui jaringan internet.
+                    </div>
+                </div>
+
+
+                <div class="card material-card">
+                    <h3>Cyberpreneurship</h3>
+
+                    <p>
+                        Untuk menjalankan bisnis online, seseorang dapat
+                        memiliki website atau blog, akun Google,
+                        dan media sosial.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- BISNIS ONLINE -->
+        <section id="bisnis">
+            <div class="container">
+
+                <div class="section-title">
+                    <div class="section-label">03 • Peluang</div>
+                    <h2>Bentuk Bisnis Online</h2>
+                </div>
+
+                <div class="business-grid">
+
+                    <div class="card">
+                        <div class="card-number">01</div>
+                        <h3>Menjual Barang</h3>
+                        <p>
+                            Menjual barang menggunakan media internet.
+                            Barang yang dapat dijual antara lain fashion,
+                            elektronik, perabotan dapur, alat tulis,
+                            mainan, perlengkapan rumah tangga, dan
+                            sayuran. Produk digital seperti PDF atau
+                            software juga dapat dijual.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-number">02</div>
+                        <h3>Menjual Jasa</h3>
+                        <p>
+                            Menjual keahlian melalui internet.
+                            Contohnya desain grafis, desain website,
+                            penerjemah, editing video, penulis artikel,
+                            dan pembuatan aplikasi mobile.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-number">03</div>
+                        <h3>Jual Beli Aset Online</h3>
+                        <p>
+                            Aset online seperti website, domain,
+                            akun media sosial, dan aplikasi dapat
+                            dijual kepada orang lain. Aset tersebut
+                            dapat memiliki nilai karena pengunjung,
+                            nama yang unik, atau penghasilan bulanannya.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-number">04</div>
+                        <h3>Affiliate Marketer</h3>
+                        <p>
+                            Affiliate marketer mempromosikan produk
+                            orang lain dan mendapatkan komisi apabila
+                            produk tersebut dibeli melalui referensinya.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-number">05</div>
+                        <h3>SEO</h3>
+                        <p>
+                            SEO atau Search Engine Optimization adalah
+                            teknik untuk mendapatkan posisi di halaman
+                            pertama Google melalui optimasi website.
+                            SEO tidak membutuhkan biaya iklan, tetapi
+                            membutuhkan proses dan tidak instan.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-number">06</div>
+                        <h3>SEM</h3>
+                        <p>
+                            SEM atau Search Engine Marketing dilakukan
+                            dengan beriklan menggunakan Google Ads.
+                            SEM berbayar dan dapat membantu website
+                            berada di halaman pertama Google dengan
+                            lebih cepat.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="card material-card" style="margin-top: 18px;">
+                    <h3>Cara Lain Mendapatkan Penghasilan Online</h3>
+
+                    <ul>
+                        <li>Menjadi YouTuber.</li>
+                        <li>Menjadi online tutor.</li>
+                        <li>Menjalankan bisnis periklanan.</li>
+                        <li>Membuat akun media sosial dengan follower banyak.</li>
+                        <li>Membuat website dengan traffic tinggi.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- REVOLUSI INDUSTRI -->
+        <section id="revolusi">
+            <div class="container">
+
+                <div class="section-title">
+                    <div class="section-label">04 • Teknologi</div>
+                    <h2>Revolusi Industri 4.0</h2>
+                </div>
+
+                <div class="material-intro">
+                    <p>
+                        Menurut materi Pertemuan 1, Revolusi Industri 4.0
+                        dipengaruhi oleh perkembangan teknologi digital
+                        yang semakin cepat. Perkembangannya juga berkaitan
+                        dengan Internet of Things dan berbagai teknologi baru.
+                    </p>
+
+                    <div class="highlight">
+                        Terdapat empat tahapan revolusi industri,
+                        yaitu Revolusi Industri 1.0 sampai dengan
+                        Revolusi Industri 4.0.
+                    </div>
+                </div>
+
+
+                <div class="tech-grid">
+
+                    <div class="card">
+                        <div class="card-number">01</div>
