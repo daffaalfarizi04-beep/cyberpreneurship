@@ -1,182 +1,2459 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Daffa Alfarizi Irawan | Cyberpreneurship</title>
+    <meta name="description" content="Website personal Daffa Alfarizi Irawan untuk mata kuliah Cyberpreneurship.">
+
+    <style>
+        :root {
+            --bg: #07121c;
+            --bg-soft: #0b1b28;
+            --card: #102533;
+            --card-soft: #122c3c;
+            --azure: #168aad;
+            --cyan: #55c7d9;
+            --cyan-soft: #8bdde6;
+            --text: #e9f5f7;
+            --text-soft: #a9c2c8;
+            --border: rgba(85, 199, 217, 0.18);
+            --shadow: rgba(0, 0, 0, 0.35);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at 80% 10%, rgba(22, 138, 173, 0.12), transparent 30%),
+                radial-gradient(circle at 10% 40%, rgba(85, 199, 217, 0.07), transparent 25%),
+                var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(7, 18, 28, 0.94);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            max-width: 1150px;
+            margin: auto;
+            padding: 15px 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--cyan-soft);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 18px;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--text-soft);
+            font-size: 14px;
+            transition: 0.25s;
+        }
+
+        .nav-links a:hover {
+            color: var(--cyan-soft);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 22px;
+        }
+
+        section {
+            padding: 85px 0;
+            scroll-margin-top: 75px;
+        }
+
+        .section-title {
+            margin-bottom: 35px;
+        }
+
+        .section-label {
+            color: var(--cyan);
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        h2 {
+            font-size: 34px;
+            line-height: 1.25;
+        }
+
+        h3 {
+            color: var(--cyan-soft);
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: var(--text-soft);
+        }
+
+        ul {
+            color: var(--text-soft);
+        }
+
+        .hero {
+            min-height: 88vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            padding: 70px 0;
+        }
+
+        .hero-small {
+            display: inline-block;
+            color: var(--cyan);
+            font-size: 14px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 8vw, 76px);
+            line-height: 1.05;
+            margin-bottom: 20px;
+            color: #f1fbfc;
+        }
+
+        .hero h1 span {
+            color: var(--cyan);
+        }
+
+        .hero-description {
+            max-width: 700px;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .identity-box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+
+        .identity-item {
+            padding: 10px 15px;
+            background: rgba(16, 37, 51, 0.75);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-soft);
+            font-size: 14px;
+        }
+
+        .identity-item strong {
+            color: var(--cyan-soft);
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 7px;
+            border: 1px solid rgba(85, 199, 217, 0.35);
+            background: rgba(22, 138, 173, 0.18);
+            color: var(--cyan-soft);
+            transition: 0.25s;
+        }
+
+        .button:hover {
+            background: rgba(22, 138, 173, 0.35);
+            transform: translateY(-2px);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            background: linear-gradient(
+                145deg,
+                rgba(16, 37, 51, 0.95),
+                rgba(10, 28, 40, 0.95)
+            );
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 12px 35px var(--shadow);
+        }
+
+        .card p {
+            font-size: 15px;
+        }
+
+        .card-number {
+            color: var(--cyan);
+            font-size: 13px;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .about-box {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 25px;
+            align-items: stretch;
+        }
+
+        .profile-card {
+            text-align: center;
+        }
+
+        .profile-photo {
+            width: 100%;
+            max-width: 330px;
+            height: 390px;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 12px 35px var(--shadow);
+            display: block;
+            margin: 0 auto 18px;
+        }
+
+        .photo-caption {
+            font-size: 13px;
+            color: var(--text-soft);
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(85, 199, 217, 0.1);
+            color: var(--text-soft);
+        }
+
+        .info-list strong {
+            color: var(--text);
+        }
+
+        .material-intro {
+            max-width: 850px;
+            margin-bottom: 35px;
+        }
+
+        .material-card {
+            margin-bottom: 18px;
+        }
+
+        .material-card h3 {
+            font-size: 21px;
+        }
+
+        .material-card ul {
+            margin: 12px 0 0 20px;
+        }
+
+        .material-card li {
+            margin-bottom: 6px;
+        }
+
+        .highlight {
+            border-left: 3px solid var(--cyan);
+            padding: 18px 20px;
+            margin: 20px 0;
+            background: rgba(22, 138, 173, 0.08);
+            color: var(--text-soft);
+        }
+
+        .business-grid,
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .value-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::after {
+            content: "";
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            right: -30px;
+            top: -30px;
+            background: rgba(85, 199, 217, 0.05);
+        }
+
+        .future {
+            border: 1px dashed rgba(85, 199, 217, 0.3);
+            background: rgba(16, 37, 51, 0.35);
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        .future-items {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .future-item {
+            padding: 10px 14px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            color: var(--text-soft);
+        }
+
+        .meeting-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .meeting-tag {
+            padding: 8px 13px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            color: var(--cyan-soft);
+            background: rgba(22, 138, 173, 0.08);
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .topic-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .topic-card {
+            min-height: 100%;
+        }
+
+        .small-list {
+            margin: 12px 0 0 20px;
+        }
+
+        .small-list li {
+            margin-bottom: 6px;
+        }
+
+        .five-models {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 14px;
+            margin-top: 20px;
+        }
+
+        .model-pill {
+            border: 1px solid var(--border);
+            background: rgba(16, 37, 51, 0.65);
+            border-radius: 9px;
+            padding: 16px 12px;
+            text-align: center;
+            color: var(--text-soft);
+            font-size: 14px;
+        }
+
+        .model-pill span {
+            display: block;
+            color: var(--cyan);
+            font-size: 12px;
+            margin-bottom: 5px;
+        }
+
+        .values-note {
+            max-width: 850px;
+            margin-bottom: 28px;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 30px 22px;
+            background: #050e16;
+        }
+
+        .footer-content {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-content p {
+            font-size: 14px;
+        }
+
+        @media (max-width: 950px) {
+            .five-models {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .grid,
+            .value-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 850px) {
+            .about-box,
+            .business-grid,
+            .tech-grid,
+            .topic-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: auto;
+            }
+
+            section {
+                padding: 70px 0;
+            }
+
+            .meeting-header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .grid,
+            .value-grid,
+            .five-models {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 44px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            h2 {
+                font-size: 28px;
+            }
+
+            .profile-photo {
+                height: 360px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <a href="#beranda" class="logo">DAI.</a>
+
+        <ul class="nav-links">
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#tentang">Tentang Saya</a></li>
+            <li><a href="#pertemuan1">Pertemuan 1</a></li>
+            <li><a href="#pertemuan2">Pertemuan 2</a></li>
+            <li><a href="#pertemuan3">Pertemuan 3</a></li>
+            <li><a href="#nilai">Kebudiluhuran</a></li>
+            <li><a href="#pengembangan">Pertemuan Berikutnya</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+
+    <!-- BERANDA -->
+    <section id="beranda" class="hero">
+        <div class="container">
+            <div class="hero-content">
+
+                <span class="hero-small">
+                    Cyberpreneurship • Portfolio Pembelajaran
+                </span>
+
+                <h1>
+                    Daffa Alfarizi<br>
+                    <span>Irawan.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Website personal untuk dokumentasi pembelajaran
+                    mata kuliah Cyberpreneurship. Materi disusun berdasarkan
+                    modul perkuliahan yang digunakan dalam pembelajaran.
+                </p>
+
+                <div class="identity-box">
+                    <div class="identity-item">
+                        <strong>NIM:</strong> 2412501674
+                    </div>
+
+                    <div class="identity-item">
+                        <strong>Mata Kuliah:</strong> Cyberpreneurship
+                    </div>
+
+                    <div class="identity-item">
+                        <strong>Universitas:</strong> Universitas Budi Luhur
+                    </div>
+                </div>
+
+                <a href="#pertemuan1" class="button">
+                    Lihat Materi
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- TENTANG -->
+    <section id="tentang">
+        <div class="container">
+
+            <div class="section-title">
+                <div class="section-label">01 • Personal</div>
+                <h2>Tentang Saya</h2>
+            </div>
+
+            <div class="about-box">
+
+                <div class="card profile-card">
+                    <img
+                        src="1000212015.jpg"
+                        alt="Foto Daffa Alfarizi Irawan"
+                        class="profile-photo"
+                    >
+
+                    <h3>Daffa Alfarizi Irawan</h3>
+                    <p class="photo-caption">
+                        Mahasiswa • Cyberpreneurship
+                    </p>
+                </div>
+
+                <div class="card">
+                    <p style="margin-bottom: 18px;">
+                        Saya adalah mahasiswa yang sedang mengerjakan
+                        tugas mata kuliah Cyberpreneurship.
+                        Website ini digunakan sebagai media untuk
+                        menyajikan materi pembelajaran dan dokumentasi
+                        pertemuan kuliah.
+                    </p>
+
+                    <ul class="info-list">
+                        <li>
+                            <strong>Nama:</strong>
+                            Daffa Alfarizi Irawan
+                        </li>
+
+                        <li>
+                            <strong>NIM:</strong>
+                            2412501674
+                        </li>
+
+                        <li>
+                            <strong>Mata Kuliah:</strong>
+                            Cyberpreneurship
+                        </li>
+
+                        <li>
+                            <strong>Universitas:</strong>
+                            Universitas Budi Luhur
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PERTEMUAN 1 -->
+    <section id="pertemuan1">
+        <div class="container">
+
+            <div class="meeting-header">
+                <div class="section-title" style="margin-bottom: 0;">
+                    <div class="section-label">02 • Pertemuan 1</div>
+                    <h2>Pengantar Cyberpreneurship</h2>
+                </div>
+
+                <div class="meeting-tag">Modul #1</div>
+            </div>
+
+            <div class="material-intro">
+                <p>
+                    Pertemuan 1 membahas pengenalan Cyberpreneurship,
+                    bentuk bisnis online, Revolusi Industri 4.0,
+                    teknologi yang berkaitan, dampaknya, manfaat dan
+                    tantangan platform digital, serta nilai Kebudiluhuran.
+                </p>
+            </div>
+
+            <div class="card material-card">
+                <h3>Cyberpreneurship</h3>
+                <p>
+                    Cyberpreneurship berasal dari kata cyber dan
+                    entrepreneurship, yaitu kewirausahaan melalui
+                    media internet. Cyberpreneurship berkaitan dengan
+                    kegiatan bisnis yang dilakukan secara online.
+                </p>
+            </div>
+
+            <div class="section-title" style="margin-top: 45px;">
+                <div class="section-label">Peluang</div>
+                <h2>Bentuk Bisnis Online</h2>
+            </div>
+
+            <div class="business-grid">
+
+                <div class="card">
+                    <div class="card-number">01</div>
+                    <h3>Menjual Barang</h3>
+                    <p>
+                        Menjual barang menggunakan media internet.
+                        Contohnya fashion, elektronik, perabotan dapur,
+                        alat tulis, mainan, perlengkapan rumah tangga,
+                        sayuran, serta produk digital seperti PDF atau software.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">02</div>
+                    <h3>Menjual Jasa</h3>
+                    <p>
+                        Menjual keahlian melalui internet, seperti
+                        desain grafis, desain website, penerjemah,
+                        editing video, penulis artikel, dan pembuatan
+                        aplikasi mobile.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">03</div>
+                    <h3>Jual Beli Aset Online</h3>
+                    <p>
+                        Aset online seperti website, domain, akun media
+                        sosial, dan aplikasi dapat dijual kepada orang lain.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">04</div>
+                    <h3>Affiliate Marketer</h3>
+                    <p>
+                        Mempromosikan produk orang lain dan mendapatkan
+                        komisi apabila produk tersebut dibeli melalui
+                        referensi.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">05</div>
+                    <h3>SEO</h3>
+                    <p>
+                        Search Engine Optimization berkaitan dengan
+                        optimasi website agar mendapatkan posisi yang
+                        baik pada mesin pencari.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">06</div>
+                    <h3>SEM</h3>
+                    <p>
+                        Search Engine Marketing dilakukan menggunakan
+                        iklan mesin pencari seperti Google Ads.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="card material-card" style="margin-top: 18px;">
+                <h3>Cara Lain Mendapatkan Penghasilan Online</h3>
+                <ul>
+                    <li>Menjadi YouTuber.</li>
+                    <li>Menjadi online tutor.</li>
+                    <li>Menjalankan bisnis periklanan.</li>
+                    <li>Membuat akun media sosial dengan banyak pengikut.</li>
+                    <li>Membuat website dengan traffic tinggi.</li>
+                </ul>
+            </div>
+
+
+            <div class="section-title" style="margin-top: 55px;">
+                <div class="section-label">Teknologi</div>
+                <h2>Revolusi Industri 4.0</h2>
+            </div>
+
+            <div class="material-intro">
+                <p>
+                    Revolusi Industri 4.0 merupakan tahap perkembangan
+                    industri yang berkaitan erat dengan perkembangan
+                    teknologi digital.
+                </p>
+
+                <div class="highlight">
+                    Tahapan revolusi industri terdiri dari Revolusi
+                    Industri 1.0, 2.0, 3.0, dan 4.0.
+                </div>
+            </div>
+
+            <div class="tech-grid">
+
+                <div class="card">
+                    <div class="card-number">01</div>
+                    <h3>Internet of Things (IoT)</h3>
+                    <p>
+                        Teknologi yang berkaitan dengan perangkat yang
+                        terhubung melalui internet.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">02</div>
+                    <h3>Big Data</h3>
+                    <p>
+                        Berkaitan dengan pengelolaan data dalam jumlah
+                        besar yang digunakan dalam perkembangan teknologi.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">03</div>
+                    <h3>Artificial Intelligence</h3>
+                    <p>
+                        Kecerdasan tiruan yang menjadi salah satu
+                        teknologi dalam perkembangan Industri 4.0.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">04</div>
+                    <h3>Cloud Computing</h3>
+                    <p>
+                        Komputasi awan yang memungkinkan penggunaan
+                        layanan komputasi melalui jaringan.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">05</div>
+                    <h3>Augmented Reality</h3>
+                    <p>
+                        Teknologi yang menjadi bagian dari perkembangan
+                        teknologi dalam Revolusi Industri 4.0.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">06</div>
+                    <h3>Cyber Security</h3>
+                    <p>
+                        Keamanan siber yang berkaitan dengan perlindungan
+                        sistem dan informasi digital.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">07</div>
+                    <h3>Additive Manufacturing</h3>
+                    <p>
+                        Teknologi yang termasuk dalam perkembangan
+                        teknologi Revolusi Industri 4.0.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="section-title" style="margin-top: 55px;">
+                <div class="section-label">Dampak Digital</div>
+                <h2>Dampak Revolusi Industri 4.0</h2>
+            </div>
+
+            <div class="topic-grid">
+                <div class="card topic-card">
+                    <h3>Perubahan Pekerjaan</h3>
+                    <p>
+                        Sebagian pekerjaan manusia dapat digantikan
+                        oleh mesin dan teknologi.
+                    </p>
+                </div>
+
+                <div class="card topic-card">
+                    <h3>Perubahan Model Bisnis</h3>
+                    <p>
+                        Teknologi mengubah cara bisnis dijalankan
+                        dan memberikan bentuk layanan baru.
+                    </p>
+                </div>
+
+                <div class="card topic-card">
+                    <h3>Perubahan Kebutuhan Pekerjaan</h3>
+                    <p>
+                        Kebutuhan terhadap beberapa jenis pekerjaan
+                        dapat berkurang karena perkembangan teknologi.
+                    </p>
+                </div>
+
+                <div class="card topic-card">
+                    <h3>Perubahan Pola Hidup</h3>
+                    <p>
+                        Teknologi memudahkan aktivitas seperti belanja,
+                        transaksi, kuliah, bekerja, dan rapat.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="section-title" style="margin-top: 55px;">
+                <div class="section-label">Platform Digital</div>
+                <h2>Manfaat dan Tantangan</h2>
+            </div>
+
+            <div class="business-grid">
+                <div class="card">
+                    <h3>Inovasi</h3>
+                    <p>
+                        Platform digital dapat mendukung munculnya
+                        inovasi dan cara baru dalam melakukan kegiatan.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Inklusivitas</h3>
+                    <p>
+                        Platform digital dapat memperluas akses
+                        terhadap layanan dan kesempatan.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Efisiensi</h3>
+                    <p>
+                        Teknologi digital dapat membuat proses
+                        menjadi lebih mudah dan efisien.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Masalah Kendali</h3>
+                    <p>
+                        Platform digital memiliki tantangan dalam
+                        pengendalian dan pengelolaan aktivitas digital.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Ketidaksetaraan</h3>
+                    <p>
+                        Perkembangan platform digital dapat menimbulkan
+                        perbedaan akses dan kesempatan.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Kompetisi</h3>
+                    <p>
+                        Platform digital juga menghadirkan persaingan
+                        dalam lingkungan bisnis.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- NILAI KEBUDILUHURAN -->
+    <section id="nilai">
+        <div class="container">
+
+            <div class="section-title">
+                <div class="section-label">03 • Nilai</div>
+                <h2>9 Nilai Kebudiluhuran</h2>
+            </div>
+
+            <div class="values-note">
+                <p>
+                    Bagian ini menjadi tempat dokumentasi nilai
+                    Kebudiluhuran yang dibahas dalam materi pembelajaran.
+                </p>
+            </div>
+
+            <div class="value-grid">
+
+                <div class="card value-card">
+                    <div class="card-number">01</div>
+                    <h3>Sabar Mensyukuri</h3>
+                    <p>
+                        Menjalani keadaan dengan kesabaran dan
+                        mensyukuri apa yang dimiliki.
+                    </p>
+                </div>
+
+                <div class="card value-card">
+                    <div class="card-number">02</div>
+                    <h3>Cinta Kasih</h3>
+                    <p>
+                        Menunjukkan kepedulian dan kasih kepada
+                        sesama.
+                    </p>
+                </div>
+
+                <div class="card value-card">
+                    <div class="card-number">03</div>
+                    <h3>Suka Menolong</h3>
+                    <p>
+                        Bersedia membantu orang lain yang membutuhkan.
+                    </p>
+                </div>
+
+                <div class="card value-card">
+                    <div class="card-number">04</div>
+                    <h3>Jujur</h3>
+                    <p>
+                        Berkata dan bertindak sesuai dengan kebenaran.
+                    </p>
+                </div>
+
+                <div class="card value-card">
+                    <div class="card-number">05</div>
+                    <h3>Tanggung Jawab</h3>
+                    <p>
+                        Melaksanakan kewajiban dan bertanggung jawab
+                        atas tindakan yang dilakukan.
+                    </p>
+                </div>
+
+                <div class="card value-card">
+                    <div class="card-number">06</div>
+                    <h3>Rendah Hati</h3>
+                    <p>
+                        Tidak menyombongkan diri dan tetap menghargai
+                        orang lain.
+                    </p>
+                </div>
+
+                <div class="card value-card">
+                    <div class="card-number">07</div>
+                    <h3>Toleransi</h3>
+                    <p>
+                        Menghargai perbedaan dan menghormati orang lain.
+                    </p>
+                </div>
+
+                <div class="card value-card">
+                    <div class="card-number">08</div>
+                    <h3>Kerjasama</h3>
+                    <p>
+                        Bekerja bersama untuk mencapai tujuan.
+                    </p>
+                </div>
+
+                <div class="card value-card">
+                    <div class="card-number">09</div>
+                    <h3>Sopan Santun</h3>
+                    <p>
+                        Menjaga sikap dan perilaku yang baik dalam
+                        berinteraksi dengan orang lain.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- PERTEMUAN 2 -->
+    <section id="pertemuan2">
+        <div class="container">
+
+            <div class="meeting-header">
+                <div class="section-title" style="margin-bottom: 0;">
+                    <div class="section-label">04 • Pertemuan 2</div>
+                    <h2>Memulai Cyberpreneurship</h2>
+                </div>
+
+                <div class="meeting-tag">Modul #2</div>
+            </div>
+
+            <div class="material-intro">
+                <p>
+                    Pertemuan 2 membahas konsep Cyberpreneurship,
+                    rumus menjadi cyberpreneur yang sukses, langkah
+                    menjadi cyberpreneur, dan model bisnis online.
+                </p>
+            </div>
+
+
+            <div class="section-title">
+                <div class="section-label">2.1 • Konsep</div>
+                <h2>Konsep Cyberpreneurship</h2>
+            </div>
+
+            <div class="topic-grid">
+
+                <div class="card topic-card">
+                    <div class="card-number">01</div>
+                    <h3>Definisi Cyberpreneur</h3>
+                    <p>
+                        Entrepreneur adalah seorang yang menjalankan
+                        bisnis dengan sistematis yang menghasilkan income.
+                        Cyberpreneur adalah seorang yang menjalankan
+                        bisnis online secara sistematis yang menghasilkan
+                        income.
+                    </p>
+                </div>
+
+                <div class="card topic-card">
+                    <div class="card-number">02</div>
+                    <h3>Istilah Sejenis</h3>
+                    <ul class="small-list">
+                        <li>Infopreneur</li>
+                        <li>Internet business</li>
+                        <li>Online business</li>
+                        <li>Googlepreneur</li>
+                        <li>Wirausaha online</li>
+                    </ul>
+                </div>
+
+                <div class="card topic-card">
+                    <div class="card-number">03</div>
+                    <h3>Fakta Pebisnis Online</h3>
+                    <ul class="small-list">
+                        <li>Menggunakan website atau social media untuk mendapatkan uang dari internet.</li>
+                        <li>Berusaha mendapatkan posisi yang baik pada mesin pencari Google.</li>
+                        <li>Berusaha memiliki banyak follower di social media.</li>
+                        <li>Pendapatan dapat berasal dari Google Adsense, berjualan online, dan affiliate marketer.</li>
+                        <li>Dibutuhkan waktu lama untuk berhasil dalam bisnis online.</li>
+                    </ul>
+                </div>
+
+                <div class="card topic-card">
+                    <div class="card-number">04</div>
+                    <h3>Googlepreneur</h3>
+                    <p>
+                        Googlepreneur adalah seseorang yang mendapatkan
+                        income dari usaha mendayagunakan tools yang
+                        tersedia di Google.com.
+                    </p>
+                    <p style="margin-top: 12px;">
+                        Income dapat berupa income langsung melalui
+                        Google Adsense dan income tidak langsung dari
+                        mendatangkan calon pembeli ke berbagai website.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="section-title" style="margin-top: 55px;">
+                <div class="section-label">Google Tools</div>
+                <h2>Tools yang Mendukung Bisnis Online</h2>
+            </div>
+
+            <div class="business-grid">
+
+                <div class="card">
+                    <h3>Search Engine Google</h3>
+                    <p>
+                        Mendapatkan informasi mengenai competitor bisnis
+                        dan menjadi sumber pengunjung.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Google Keyword Planner</h3>
+                    <p>
+                        Mendapatkan informasi keyword yang banyak diminati
+                        dan keyword untuk niche market tertentu.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>YouTube</h3>
+                    <p>
+                        Mengupload video dan menjadi sumber inspirasi
+                        untuk content.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Gmail</h3>
+                    <p>
+                        Menyediakan layanan email.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Blogger</h3>
+                    <p>
+                        Menyediakan layanan blog gratis.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Google My Business</h3>
+                    <p>
+                        Digunakan untuk mendaftarkan bisnis di Maps.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Google Ads</h3>
+                    <p>
+                        Layanan periklanan untuk mempercepat promosi.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <h3>Google Analytics</h3>
+                    <p>
+                        Digunakan untuk mengetahui traffic website.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="section-title" style="margin-top: 55px;">
+                <div class="section-label">2.2 • Rumus Sukses</div>
+                <h2>CTPM</h2>
+            </div>
+
+            <div class="material-intro">
+                <div class="highlight">
+                    CTPM merupakan singkatan dari
+                    <strong>Content - Traffic - Presell - Monetize</strong>.
+                </div>
+            </div>
+
+            <div class="topic-grid">
+
+                <div class="card topic-card">
+                    <div class="card-number">01 • CONTENT</div>
+                    <h3>Content</h3>
+                    <p>
+                        Content adalah isi sebuah platform website atau
+                        social media. Content dapat berupa blog, forum,
+                        ruang iklan, portal video, photo gallery,
+                        directory, search engine, dan postingan social media.
+                    </p>
+                </div>
+
+                <div class="card topic-card">
+                    <div class="card-number">02 • TRAFFIC</div>
+                    <h3>Traffic</h3>
+                    <p>
+                        Traffic adalah pengunjung yang datang ke website
+                        atau social media. Pengunjung dapat berasal dari
+                        search engine, forum, iklan, email, affiliate program,
+                        social network, paid promote, dan sumber lainnya.
+                    </p>
+                </div>
+
+                <div class="card topic-card">
+                    <div class="card-number">03 • PRESELL</div>
+                    <h3>Presell</h3>
+                    <p>
+                        Presell adalah menulis tentang sesuatu yang ingin
+                        dipromosikan. Presell dapat dilakukan dengan
+                        merekomendasikan, mengulas, menjelaskan, atau
+                        membandingkan produk maupun layanan.
+                    </p>
+                </div>
+
+                <div class="card topic-card">
+                    <div class="card-number">04 • MONETIZE</div>
+                    <h3>Monetize</h3>
+                    <p>
+                        Monetize adalah mendapatkan uang. Uang dapat
+                        diperoleh dari penjualan produk atau jasa secara
+                        langsung, iklan Adsense, afiliasi, dan lainnya.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="section-title" style="margin-top: 55px;">
+                <div class="section-label">2.3 • Langkah Awal</div>
+                <h2>Langkah Menjadi Cyberpreneur</h2>
+            </div>
+
+            <div class="business-grid">
+
+                <div class="card">
+                    <div class="card-number">01</div>
+                    <h3>Miliki Mindset Bisnis Online</h3>
+                    <p>
+                        Tentukan motivasi menjalankan bisnis online,
+                        fokus pada beberapa model bisnis, gunakan
+                        kekuatan yang dimiliki, dan tetap konsisten
+                        serta pantang menyerah.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">02</div>
+                    <h3>Pahami Model Bisnis Online</h3>
+                    <p>
+                        Pahami lima model bisnis online dan pilih
+                        yang paling mudah menurut Anda.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">03</div>
+                    <h3>Pilih Topik atau Niche</h3>
+                    <p>
+                        Tentukan topik yang disukai dan memiliki
+                        komunitas pembeli. Kesalahan yang perlu
+                        diperhatikan antara lain niche terlalu luas,
+                        tidak menguasai niche, dan tidak ada kompetisi.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">04</div>
+                    <h3>Buat Rencana Bisnis</h3>
+                    <p>
+                        Rencana bisnis meliputi business summary,
+                        competition analysis, USP, website development
+                        plan, content development plan, dan traffic
+                        generation plan.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">05</div>
+                    <h3>Pahami CTPM</h3>
+                    <p>
+                        Jalankan langkah bisnis online mulai dari
+                        Content sampai Monetize.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="section-title" style="margin-top: 55px;">
+                <div class="section-label">2.4 • Model Bisnis</div>
+                <h2>5 Model Bisnis Online</h2>
+            </div>
+
+            <div class="five-models">
+                <div class="model-pill">
+                    <span>01</span>
+                    Produk Sendiri
+                </div>
+
+                <div class="model-pill">
+                    <span>02</span>
+                    Keahlian / Proyek
+                </div>
+
+                <div class="model-pill">
+                    <span>03</span>
+                    Affiliate Marketing
+                </div>
+
+                <div class="model-pill">
+                    <span>04</span>
+                    Ruang Iklan
+                </div>
+
+                <div class="model-pill">
+                    <span>05</span>
+                    Asset Online
+                </div>
+            </div>
+
+            <div class="business-grid" style="margin-top: 18px;">
+
+                <div class="card">
+                    <div class="card-number">01</div>
+                    <h3>Menjual Produk Sendiri</h3>
+                    <ul class="small-list">
+                        <li>Website toko online sendiri.</li>
+                        <li>Social media seperti Instagram dan Facebook.</li>
+                        <li>Marketplace seperti Tokopedia, Bukalapak, dan Shopee.</li>
+                        <li>Produk digital seperti ebook, software, dan multimedia course.</li>
+                        <li>Akses keanggotaan atau membership.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">02</div>
+                    <h3>Mengerjakan Suatu Proyek</h3>
+                    <p>
+                        Keahlian dapat dipromosikan melalui internet.
+                        Contohnya desain grafis, pembuatan website,
+                        programmer, penulis artikel, transkrip audio/video,
+                        penerjemah, virtual assistant, konsultan SEO,
+                        dan pengelola iklan PPC.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">03</div>
+                    <h3>Affiliate Marketing</h3>
+                    <p>
+                        Memasarkan produk milik pihak lain dan mendapatkan
+                        komisi setiap terjadi penjualan.
+                    </p>
+
+                    <ul class="small-list">
+                        <li>Pay Per Sale (PPS)</li>
+                        <li>Pay Per Lead (PPL)</li>
+                        <li>Pay Per Action (PPA)</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">04</div>
+                    <h3>Membuat Ruang Iklan</h3>
+                    <p>
+                        Memberikan fokus pada iklan yang terpasang pada
+                        website untuk mendapatkan income dari iklan
+                        konvensional dan iklan online seperti Google Adsense.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">05</div>
+                    <h3>Menjual Asset Online</h3>
+                    <p>
+                        Asset online dapat berupa website, akun social
+                        media, dan apps. Kriterianya antara lain memiliki
+                        penghasilan bulanan, keyword yang masuk top 10,
+                        jumlah pengunjung ribuan, follower banyak, dan
+                        mudah dalam maintenance.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- PERTEMUAN 3 -->
+    <section id="pertemuan3">
+        <div class="container">
+
+            <div class="meeting-header">
+                <div class="section-title" style="margin-bottom: 0;">
+                    <div class="section-label">05 • Pertemuan 3</div>
+                    <h2>Domain dan Hosting</h2>
+                </div>
+
+                <div class="meeting-tag">Modul #3</div>
+            </div>
+
+            <div class="material-intro">
+                <p>
+                    Pertemuan 3 membahas domain dan hosting yang digunakan
+                    dalam pembuatan website. Materi meliputi kegunaan domain,
+                    jenis ekstensi domain, aturan penamaan domain, cara
+                    menentukan nama domain, hosting, jenis hosting, komponen
+                    hosting, tips memilih hosting, cPanel, dan Softaculous.
+                </p>
+            </div>
+
+
+            <div class="section-title">
+                <div class="section-label">3.1 • Domain</div>
+                <h2>Pengertian Domain</h2>
+            </div>
+
+            <div class="topic-grid">
+
+                <div class="card topic-card">
+                    <div class="card-number">01</div>
+                    <h3>Domain</h3>
+                    <p>
+                        Domain merupakan penamaan alamat website di internet.
+                        Contohnya google.com, budiluhur.ac.id, dan
+                        away.web.id.
+                    </p>
+                </div>
+
+                <div class="card topic-card">
+                    <div class="card-number">02</div>
+                    <h3>IP Address</h3>
+                    <p>
+                        Pada awalnya komputer melalui internet diakses
+                        menggunakan IP Address. DNS kemudian mengubah
+                        IP Address menjadi nama domain.
+                    </p>
+                </div>
+
+                <div class="card topic-card">
+                    <div class="card-number">03</div>
+                    <h3>DNS</h3>
+                    <p>
+                        DNS atau Domain Name System merupakan sistem yang
+                        menerjemahkan nama domain menjadi alamat IP sehingga
+                        website dapat diakses melalui internet.
+                    </p>
+                </div>
+
+                <div class="card topic-card">
+                    <div class="card-number">04</div>
+                    <h3>IP Public</h3>
+                    <p>
+                        IP Address yang dapat diakses melalui internet
+                        merupakan IP Public.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="section-title" style="margin-top: 55px;">
+                <div class="section-label">Ekstensi Domain</div>
+                <h2>Jenis Top Level Domain</h2>
+            </div>
+
+            <div class="business-grid">
+
+                <div class="card">
+                    <div class="card-number">01</div>
+                    <h3>Original TLD</h3>
+                    <ul class="small-list">
+                        <li><strong>.com</strong> → Komersial</li>
+                        <li><strong>.org</strong> → Organisasi</li>
+                        <li><strong>.net</strong> → Network</li>
+                        <li><strong>.edu</strong> → Pendidikan</li>
+                        <li><strong>.mil</strong> → Militer khusus USA</li>
+                        <li><strong>.gov</strong> → Pemerintahan khusus USA</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">02</div>
+                    <h3>Country Code TLD</h3>
+                    <ul class="small-list">
+                        <li><strong>.ar</strong> → Argentina</li>
+                        <li><strong>.au</strong> → Australia</li>
+                        <li><strong>.bn</strong> → Brunei</li>
+                        <li><strong>.br</strong> → Brazil</li>
+                        <li><strong>.ca</strong> → Canada</li>
+                        <li><strong>.de</strong> → Jerman</li>
+                        <li><strong>.es</strong> → Spanyol</li>
+                        <li><strong>.fr</strong> → Perancis</li>
+                        <li><strong>.hk</strong> → Hongkong</li>
+                        <li><strong>.id</strong> → Indonesia</li>
+                        <li><strong>.in</strong> → India</li>
+                        <li><strong>.it</strong> → Italia</li>
+                        <li><strong>.kr</strong> → Korea Selatan</li>
+                        <li><strong>.my</strong> → Malaysia</li>
+                        <li><strong>.sg</strong> → Singapura</li>
+                        <li><strong>.th</strong> → Thailand</li>
+                        <li><strong>.tv</strong> → Tuvalu</li>
+                        <li><strong>.uk</strong> → Inggris</li>
+                        <li><strong>.us</strong> → USA</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">03</div>
+                    <h3>New TLD</h3>
+                    <ul class="small-list">
+                        <li><strong>.shop</strong> → Toko online</li>
+                        <li><strong>.store</strong> → Toko online</li>
+                        <li><strong>.business</strong> → Bisnis</li>
+                        <li><strong>.company</strong> → Perusahaan</li>
+                        <li><strong>.tech</strong> → Startup teknologi</li>
+                        <li><strong>.cloud</strong> → Layanan cloud</li>
+                        <li><strong>.app</strong> → Aplikasi</li>
+                        <li><strong>.art</strong> → Seni</li>
+                        <li><strong>.club</strong> → Organisasi</li>
+                        <li><strong>.name</strong> → Pribadi</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">04</div>
+                    <h3>Domain .id</h3>
+                    <ul class="small-list">
+                        <li><strong>.id</strong> → Bebas</li>
+                        <li><strong>.ac.id</strong> → Akademik</li>
+                        <li><strong>.sch.id</strong> → Sekolah</li>
+                        <li><strong>.co.id</strong> → Perusahaan</li>
+                        <li><strong>.web.id</strong> → Personal</li>
+                        <li><strong>.or.id</strong> → Organisasi</li>
+                        <li><strong>.my.id</strong> → Bebas</li>
+                        <li><strong>.biz.id</strong> → Bebas</li>
+                        <li><strong>.ponpes.id</strong> → Pondok pesantren</li>
+                    </ul>
+                </div>
+
+            </div>
+
+
+            <div class="section-title" style="margin-top: 55px;">
+                <div class="section-label">Penamaan</div>
+                <h2>Aturan Penamaan Domain</h2>
+            </div>
+
+            <div class="card material-card">
+                <ul class="small-list">
+                    <li>Nama domain tidak bisa menggunakan spasi.</li>
+                    <li>Huruf besar ataupun kecil tidak berpengaruh.</li>
+                    <li>Nama domain tidak dapat diawali atau diakhiri tanda minus (-).</li>
+                    <li>Nama domain hanya dapat mengandung karakter alphanumeric dan tanda minus (-).</li>
+                    <li>Tidak mengandung simbol seperti ! @ # $ % ^ &.</li>
+                    <li>Panjang minimal 2 karakter.</li>
+                    <li>Panjang maksimum nama domain adalah 63 karakter, tidak termasuk TLD.</li>
+                </ul>
+            </div>
+
+
+            <div class="section-title" style="margin-top: 55px;">
+                <div class="section-label">Pemilik Domain</div>
+                <h2>Cek Data Pemilik Domain</h2>
+            </div>
+
+            <div class="topic-grid">
+
+                <div class="card topic-card">
+                    <div class="card-number">01</div>
+                    <h3>WHOIS</h3>
+                    <p>
+                        Data pemilik domain dapat dilihat melalui WHOIS.
+                        WHOIS juga dapat digunakan untuk mengecek apakah
+                        sebuah domain sudah dimiliki orang lain atau belum.
+                    </p>
+                </div>
+
+                <div class="card topic-card">
+                    <div class="card-number">02</div>
+                    <h3>WHOIS Protection</h3>
+                    <p>
+                        Data pemilik domain dapat disembunyikan jika pemilik
+                        mengaktifkan WHOIS Protection. Biasanya fitur ini
+                        dikenakan biaya tambahan.
+                    </p>
+                </div>
+
+                <div class="card topic-card">
+                    <div class="card-number">03</div>
+                    <h3>Informasi Domain</h3>
+                    <p>
+                        Informasi yang dapat ditampilkan antara lain tanggal
+                        pendaftaran, expired, DNS, nama pemilik, organisasi,
+                        alamat, negara, nomor telepon, dan email.
+                    </p>
+                </div>
+
+                <div class="card topic-card">
+                    <div class="card-number">04</div>
+                    <h3>Website WHOIS</h3>
+                    <p>
+                        Salah satu contoh layanan yang dapat digunakan
+                        untuk mengecek data domain adalah who.is.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="section-title" style="margin-top: 55px;">
+                <div class="section-label">Pengelolaan Domain</div>
+                <h2>ICANN, Registry dan Registrar</h2>
+            </div>
+
+            <div class="business-grid">
+
+                <div class="card">
+                    <div class="card-number">01</div>
+                    <h3>ICANN</h3>
+                    <p>
+                        Internet Corporation for Assigned Names and Numbers
+                        merupakan lembaga internasional yang mengatur sistem
+                        nama domain atau DNS di seluruh dunia.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">02</div>
+                    <h3>Registry</h3>
+                    <p>
+                        Registry merupakan organisasi yang mengelola ekstensi
+                        domain tertentu. Contohnya Verisign mengelola .com
+                        dan .net, PANDI mengelola .id, serta Public Interest
+                        Registry mengelola .org.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">03</div>
+                    <h3>Registrar</h3>
+                    <p>
+                        Registrar merupakan perusahaan yang menjual dan
+                        mendaftarkan domain kepada pengguna. Registrar
+                        bekerja di bawah pengawasan Registry dan ICANN.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">04</div>
+                    <h3>Contoh Registrar</h3>
+                    <p>
+                        Contoh registrar adalah Idwebhost, Rumahweb,
+                        Niagahoster, Exabytes, Namecheap, Hostgator,
+                        Godaddy, dan Hawkhost.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="section-title" style="margin-top: 55px;">
+                <div class="section-label">Memilih Domain</div>
+                <h2>Panduan Menentukan Nama Domain</h2>
+            </div>
+
+            <div class="business-grid">
+
+                <div class="card">
+                    <div class="card-number">01</div>
+                    <h3>Sesuai Brand</h3>
+                    <p>
+                        Pilih nama domain yang mewakili nama brand.
+                        Hindari nama domain yang melanggar hak cipta
+                        atau merek dagang.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">02</div>
+                    <h3>Sesuai Produk</h3>
+                    <p>
+                        Pilih nama domain sesuai produk yang dijual.
+                        Hal ini dapat membantu pelanggan mengenali bisnis,
+                        meningkatkan SEO, kepercayaan, dan profesionalisme.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">03</div>
+                    <h3>Gunakan Ekstensi Tepat</h3>
+                    <p>
+                        .com cocok untuk bisnis umum, .id cocok untuk
+                        bisnis atau brand di Indonesia, dan .org untuk
+                        organisasi non-profit. Untuk kebutuhan tertentu
+                        dapat menggunakan .tech, .store, atau .app.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">04</div>
+                    <h3>Mudah Diingat</h3>
+                    <p>
+                        Jangan menggunakan nama domain yang terlalu panjang.
+                        Hindari ejaan rumit serta sebisa mungkin menghindari
+                        angka dan tanda hubung.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">05</div>
+                    <h3>Registrar Terpercaya</h3>
+                    <p>
+                        Perhatikan harga pembelian awal dan harga
+                        perpanjangan. Domain dibeli dalam jangka
+                        waktu tahunan.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">06</div>
+                    <h3>Mengandung Kata Kunci</h3>
+                    <p>
+                        Nama domain dapat mengandung kata kunci yang
+                        ditargetkan untuk meningkatkan peluang muncul
+                        pada halaman pertama Google.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="section-title" style="margin-top: 55px;">
+                <div class="section-label">Istilah Domain</div>
+                <h2>Istilah Terkait Domain</h2>
+            </div>
+
+            <div class="topic-grid">
+
+                <div class="card topic-card">
+                    <h3>Subdomain</h3>
+                    <p>
+                        Bagian dari domain utama yang digunakan untuk
+                        memisahkan bagian tertentu dari website.
+                        Contohnya fti.budiluhur.ac.id.
+                    </p>
+                </div>
+
+                <div class="card topic-card">
+                    <h3>Domain Parked</h3>
+                    <p>
+                        Domain yang telah didaftarkan tetapi belum
+                        memiliki website atau diarahkan ke halaman lain.
+                    </p>
+                </div>
+
+                <div class="card topic-card">
+                    <h3>Domain Expired</h3>
+                    <p>
+                        Domain yang tidak diperpanjang pemiliknya
+                        dan dapat didaftarkan kembali oleh orang lain.
+                    </p>
+                </div>
+
+                <div class="card topic-card">
+                    <h3>DNS & Nameserver</h3>
+                    <p>
+                        DNS menerjemahkan domain menjadi alamat IP.
+                        Nameserver menyimpan informasi DNS dan menentukan
+                        ke mana domain akan diarahkan.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="section-title" style="margin-top: 65px;">
+                <div class="section-label">3.2 • Hosting</div>
+                <h2>Pengertian Hosting</h2>
+            </div>
+
+            <div class="material-intro">
+
+                <div class="highlight">
+                    Hosting adalah tempat untuk menyimpan seluruh script
+                    web, database, gambar, dan video agar website dapat
+                    diakses di internet.
+                </div>
+
+                <p>
+                    Hosting dapat dibeli dalam jangka waktu bulanan maupun
+                    tahunan. Beberapa registrar menyediakan pembelian
+                    hosting dalam jangka waktu tiga bulanan, enam bulanan,
+                    dan tahunan.
+                </p>
+
+            </div>
+
+
+            <div class="section-title">
+                <div class="section-label">Jenis Hosting</div>
+                <h2>Macam-Macam Hosting</h2>
+            </div>
+
+            <div class="business-grid">
+
+                <div class="card">
+                    <div class="card-number">01</div>
+                    <h3>Shared Hosting</h3>
+                    <p>
+                        Server digunakan bersama dengan banyak website lain.
+                        Cocok untuk pemula.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">02</div>
+                    <h3>VPS</h3>
+                    <p>
+                        Virtual Private Server merupakan server yang
+                        dibagi menjadi beberapa virtual server dengan
+                        akses yang lebih eksklusif.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">03</div>
+                    <h3>Cloud Hosting</h3>
+                    <p>
+                        Menggunakan beberapa server sekaligus untuk
+                        meningkatkan performa dan uptime.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">04</div>
+                    <h3>Dedicated Server</h3>
+                    <p>
+                        Server fisik khusus untuk satu pengguna.
+                        Performa lebih tinggi tetapi lebih mahal.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">05</div>
+                    <h3>WordPress Hosting</h3>
+                    <p>
+                        Hosting yang dioptimalkan khusus untuk
+                        website WordPress.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="section-title" style="margin-top: 55px;">
+                <div class="section-label">Komponen</div>
+                <h2>Komponen Hosting</h2>
+            </div>
+
+            <div class="tech-grid">
+
+                <div class="card">
+                    <div class="card-number">01</div>
+                    <h3>Disk Space</h3>
+                    <p>
+                        Kapasitas penyimpanan file website.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">02</div>
+                    <h3>Bandwidth</h3>
+                    <p>
+                        Jumlah data yang dapat ditransfer dalam
+                        periode tertentu.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">03</div>
+                    <h3>CPU & RAM</h3>
+                    <p>
+                        Menentukan kecepatan dan performa website.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">04</div>
+                    <h3>Web Server</h3>
+                    <p>
+                        Perangkat lunak yang menangani permintaan browser
+                        dan mengirimkan halaman web. Contohnya Apache
+                        dan Nginx.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">05</div>
+                    <h3>Control Panel Hosting</h3>
+                    <p>
+                        Alat untuk mengelola server dan website dengan
+                        antarmuka yang mudah digunakan, seperti cPanel,
+                        CyberPanel, dan Plesk.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">06</div>
+                    <h3>Database Server</h3>
+                    <p>
+                        Perangkat lunak untuk mengelola basis data,
+                        seperti MySQL, MariaDB, dan PostgreSQL.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">07</div>
+                    <h3>Sistem Operasi</h3>
+                    <p>
+                        Sistem operasi yang menjalankan hosting,
+                        seperti Linux dan Windows.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="section-title" style="margin-top: 55px;">
+                <div class="section-label">Memilih Hosting</div>
+                <h2>Tips Memilih Hosting</h2>
+            </div>
+
+            <div class="business-grid">
+
+                <div class="card">
+                    <div class="card-number">01</div>
+                    <h3>Kapasitas Penyimpanan</h3>
+                    <p>
+                        Sesuaikan kuota atau kapasitas penyimpanan
+                        dengan kebutuhan website.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">02</div>
+                    <h3>Bandwidth</h3>
+                    <p>
+                        Sesuaikan bandwidth dengan ukuran website,
+                        jumlah pengunjung, dan perkiraan traffic
+                        selama satu bulan.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">03</div>
+                    <h3>Lokasi Server</h3>
+                    <p>
+                        Pemilihan lokasi server tergantung target
+                        pengunjung. Untuk target Indonesia, server
+                        di Indonesia dapat membuat akses lebih cepat.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">04</div>
+                    <h3>Fasilitas</h3>
+                    <p>
+                        Perhatikan bahasa pemrograman, DBMS, cPanel,
+                        Softaculous, add on domain, jumlah email,
+                        dan jumlah subdomain.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-number">05</div>
+                    <h3>Syarat dan Ketentuan</h3>
+                    <p>
+                        Baca syarat dan ketentuan penyedia hosting,
+                        termasuk jenis website dan software yang
+                        diperbolehkan maupun dilarang.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="section-title" style="margin-top: 55px;">
+                <div class="section-label">3.3 • cPanel</div>
+                <h2>cPanel</h2>
+            </div>
+
+            <div class="topic-grid">
+
+                <div class="card topic-card">
+                    <div class="card-number">01</div>
+                    <h3>Pengertian cPanel</h3>
+                    <p>
+                        cPanel merupakan control panel hosting yang
+                        berguna untuk melakukan management hosting.
+                    </p>
+                </div>
+
+                <div class="card topic-card">
+                    <div class="card-number">02</div>
+                    <h3>Akses cPanel</h3>
+                    <p>
+                        Setelah membeli hosting, penyedia layanan akan
+                        memberikan username dan password untuk masuk
+                        ke cPanel.
+                    </p>
+                </div>
+
+                <div class="card topic-card">
+                    <div class="card-number">03</div>
+                    <h3>Alamat Akses</h3>
+                    <p>
+                        cPanel dapat diakses melalui namadomain.com/cpanel,
+                        namadomain.com/2082, atau namadomain.com/2083.
+                    </p>
+                </div>
+
+                <div class="card topic-card">
+                    <div class="card-number">04</div>
+                    <h3>Kegunaan cPanel</h3>
+                    <ul class="small-list">
+                        <li>Membuat alamat email.</li>
+                        <li>Membuat subdomain.</li>
+                        <li>Mengatur file.</li>
+                        <li>Mengatur add on domain.</li>
+                        <li>Backup file.</li>
+                        <li>Melihat traffic website.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+
+            <div class="section-title" style="margin-top: 55px;">
+                <div class="section-label">Software</div>
+                <h2>Softaculous</h2>
+            </div>
+
+            <div class="material-intro">
+                <p>
+                    Softaculous merupakan fitur di cPanel yang digunakan
+                    untuk melakukan instalasi software CMS dengan mudah.
+                    Pengguna cukup memilih CMS yang akan diinstal tanpa
+                    harus mengupload file CMS dan membuat database secara
+                    manual.
+                </p>
+            </div>
+
+            <div class="card material-card">
+                <h3>Kegunaan Softaculous</h3>
+                <ul>
+                    <li>Memudahkan instalasi software CMS.</li>
+                    <li>Memilih CMS yang akan diinstal.</li>
+                    <li>Tidak perlu mengupload file CMS secara manual.</li>
+                    <li>Tidak perlu membuat database secara manual.</li>
+                    <li>Contohnya digunakan untuk instalasi WordPress.</li>
+                </ul>
+            </div>
+
+
+            <div class="section-title" style="margin-top: 55px;">
+                <div class="section-label">Kesimpulan</div>
+                <h2>Kesimpulan Pertemuan 3</h2>
+            </div>
+
+            <div class="future">
+                <p>
+                    Untuk membuat website dibutuhkan domain dan hosting.
+                    Domain adalah penamaan website di internet, sedangkan
+                    hosting adalah tempat penyimpanan data website.
+                    Domain dan hosting dapat dibeli melalui registrar.
+                    cPanel merupakan control panel untuk melakukan
+                    management data yang ada di hosting, sedangkan
+                    Softaculous digunakan untuk membantu instalasi CMS
+                    dengan lebih mudah.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- PERTEMUAN BERIKUTNYA -->
+    <section id="pengembangan">
+        <div class="container">
+
+            <div class="section-title">
+                <div class="section-label">06 • Pengembangan</div>
+                <h2>Pertemuan Berikutnya</h2>
+            </div>
+
+            <div class="future">
+                <p>
+                    Bagian ini disiapkan agar website dapat terus
+                    dikembangkan untuk materi perkuliahan berikutnya.
+                    Materi Pertemuan 4 dan seterusnya akan ditambahkan
+                    setelah sumber materinya tersedia.
+                </p>
+
+                <div class="future-items">
+                    <div class="future-item">Pertemuan 4 • Akan ditambahkan</div>
+                    <div class="future-item">Pertemuan 5 • Akan ditambahkan</div>
+                    <div class="future-item">Pertemuan 6 • Akan ditambahkan</div>
+                    <div class="future-item">Materi berikutnya • Akan ditambahkan</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+
+<footer>
+    <div class="footer-content">
+        <div>
+            <p><strong style="color: var(--cyan-soft);">Daffa Alfarizi Irawan</strong></p>
+            <p>NIM 2412501674</p>
+        </div>
+
+        <div>
+            <p>Cyberpreneurship</p>
+            <p>Universitas Budi Luhur</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
+<!-- PERTEMUAN 4: MEMBUAT CONTENT DI BLOG -->
 <section id="pertemuan4">
     <div class="container">
+
         <div class="meeting-header">
             <div>
-                <div class="section-label">06 • Materi Perkuliahan</div>
-                <h2>Pertemuan 4</h2>
+                <div class="section-label">Pertemuan 4</div>
+                <h2>Membuat Content di Blog</h2>
             </div>
-            <span class="meeting-tag">Membuat Content di Blog</span>
+            <div class="meeting-tag">Materi Cyberpreneurship</div>
         </div>
 
         <div class="material-intro">
             <p>
-                Konten merupakan bagian penting dalam bisnis digital untuk
-                menarik pengunjung, memperkenalkan merek, membangun kepercayaan,
-                meningkatkan interaksi, dan membantu meningkatkan penjualan.
-                Konten dapat berupa artikel blog, video, infografik, podcast,
-                media sosial, email marketing, webinar, dan live streaming.
+                Content merupakan bagian penting dalam menjalankan bisnis internet.
+                Konten yang menarik dan bermanfaat dapat mendatangkan pengunjung,
+                memperkenalkan produk, membangun kepercayaan, serta meningkatkan
+                peluang penjualan. Konten dapat dibuat dalam bentuk artikel blog,
+                postingan media sosial, video YouTube, dan berbagai format lainnya.
             </p>
         </div>
 
         <div class="section-title">
-            <div class="section-label">4.1 • Dasar Konten</div>
-            <h2>Pentingnya Konten Digital</h2>
+            <div class="section-label">01 • Dasar Konten</div>
+            <h2>Pentingnya Membuat Content</h2>
         </div>
 
         <div class="grid">
             <div class="card">
                 <div class="card-number">01</div>
                 <h3>Brand Awareness</h3>
-                <p>Konten membantu masyarakat mengenal merek, produk, dan layanan sebuah bisnis.</p>
+                <p>Konten membantu memperkenalkan merek, produk, atau layanan kepada lebih banyak orang.</p>
             </div>
+
             <div class="card">
                 <div class="card-number">02</div>
-                <h3>Menarik Audiens</h3>
-                <p>Konten yang relevan membuat pengunjung tertarik dan ingin kembali melihat informasi yang dibagikan.</p>
+                <h3>Mendatangkan Pengunjung</h3>
+                <p>Konten yang sesuai dengan kebutuhan audiens dapat menarik pengunjung ke blog, website, atau media sosial.</p>
             </div>
+
             <div class="card">
                 <div class="card-number">03</div>
-                <h3>SEO</h3>
-                <p>Artikel yang informatif dan menggunakan kata kunci relevan dapat membantu website ditemukan melalui mesin pencari.</p>
+                <h3>Membangun Kepercayaan</h3>
+                <p>Informasi yang jelas, akurat, dan bermanfaat membantu membangun kepercayaan calon pelanggan.</p>
             </div>
+
             <div class="card">
                 <div class="card-number">04</div>
-                <h3>Membangun Kepercayaan</h3>
-                <p>Informasi yang akurat dan bermanfaat menunjukkan bahwa bisnis memahami bidangnya dan kebutuhan pelanggan.</p>
+                <h3>SEO</h3>
+                <p>Penggunaan kata kunci yang relevan membantu konten lebih mudah ditemukan melalui mesin pencari.</p>
             </div>
+
             <div class="card">
                 <div class="card-number">05</div>
-                <h3>Interaksi</h3>
-                <p>Konten mendorong audiens untuk memberikan komentar, berdiskusi, dan membagikan informasi.</p>
+                <h3>Engagement</h3>
+                <p>Konten mendorong audiens untuk berkomentar, berdiskusi, menyukai, dan membagikan informasi.</p>
             </div>
+
             <div class="card">
                 <div class="card-number">06</div>
-                <h3>Penjualan</h3>
-                <p>Konten membantu calon pelanggan memahami manfaat produk sebelum melakukan pembelian.</p>
+                <h3>Konversi</h3>
+                <p>Konten yang tepat membantu calon pelanggan memahami manfaat produk dan mempertimbangkan pembelian.</p>
             </div>
         </div>
 
-        <div class="section-title" style="margin-top: 50px;">
-            <div class="section-label">4.2 • Strategi Konten</div>
-            <h2>Merencanakan Konten</h2>
+        <div class="section-title" style="margin-top:45px">
+            <div class="section-label">02 • Jenis Konten</div>
+            <h2>Bentuk dan Kanal Content</h2>
         </div>
 
         <div class="topic-grid">
             <div class="card topic-card">
-                <h3>Menentukan Tujuan</h3>
-                <p>Tentukan tujuan konten, seperti meningkatkan kesadaran merek, interaksi, jumlah pengunjung, atau penjualan.</p>
+                <h3>Artikel dan Blog</h3>
+                <p>Konten tulisan yang memberikan informasi, penjelasan, panduan, atau jawaban atas pertanyaan pembaca.</p>
             </div>
+
             <div class="card topic-card">
-                <h3>Mengenali Audiens</h3>
-                <p>Pahami kebutuhan, minat, karakteristik, dan kebiasaan target audiens agar konten tepat sasaran.</p>
+                <h3>Media Sosial</h3>
+                <p>Konten berupa teks, gambar, atau video yang dibagikan melalui Instagram, Facebook, dan platform lainnya.</p>
             </div>
+
             <div class="card topic-card">
-                <h3>Riset Kata Kunci</h3>
-                <p>Gunakan Google Keyword Planner, Ahrefs, atau Ubersuggest untuk menemukan kata kunci yang relevan.</p>
+                <h3>Video dan YouTube</h3>
+                <p>Konten visual untuk menyampaikan tutorial, ulasan, informasi, dan promosi produk dengan cara yang menarik.</p>
             </div>
+
             <div class="card topic-card">
-                <h3>Mengikuti Tren</h3>
-                <p>Amati tren dan kompetitor menggunakan Google Trends. Seimbangkan konten evergreen dengan topik yang sedang populer.</p>
-            </div>
-            <div class="card topic-card">
-                <h3>Content Pillars</h3>
-                <p>Tentukan tiga sampai lima tema utama sebagai dasar konten agar pembahasan tetap konsisten.</p>
-            </div>
-            <div class="card topic-card">
-                <h3>Kalender Konten</h3>
-                <p>Buat jadwal publikasi agar konten terbit secara teratur, lalu evaluasi hasilnya menggunakan Google Analytics atau Meta Insights.</p>
+                <h3>Format Lainnya</h3>
+                <p>Konten juga dapat berupa infografik, podcast, email marketing, webinar, dan live streaming.</p>
             </div>
         </div>
 
-        <div class="card material-card" style="margin-top: 20px;">
-            <h3>Ciri Konten yang Baik</h3>
-            <ul>
-                <li>Orisinal, menarik, dan memiliki judul yang sesuai dengan isi.</li>
-                <li>Memberikan informasi yang akurat dan menjawab pertanyaan audiens.</li>
+        <div class="card material-card" style="margin-top:18px">
+            <h3>Memilih Platform yang Tepat</h3>
+            <p>
+                Platform konten perlu dipilih berdasarkan target pasar, kebiasaan audiens,
+                kemampuan pembuat konten, dan jenis konten yang akan dibuat. Sebaiknya
+                fokus pada dua sampai tiga platform terlebih dahulu agar pengelolaan
+                konten lebih terarah.
+            </p>
+        </div>
+
+        <div class="section-title" style="margin-top:45px">
+            <div class="section-label">03 • Riset Konten</div>
+            <h2>Menentukan Topik Content</h2>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3>Memahami Audiens</h3>
+                <p>Ketahui kebutuhan, minat, usia, dan kebiasaan target pembaca agar konten yang dibuat sesuai dengan mereka.</p>
+            </div>
+
+            <div class="card">
+                <h3>Melihat Kompetitor</h3>
+                <p>Pelajari konten pesaing untuk mengetahui kekuatan, kelemahan, dan peluang membuat konten yang lebih baik.</p>
+            </div>
+
+            <div class="card">
+                <h3>Forum Diskusi</h3>
+                <p>Reddit, Kaskus, Facebook Group, Telegram, dan Discord dapat digunakan untuk menemukan pertanyaan dan topik yang diminati audiens.</p>
+            </div>
+
+            <div class="card">
+                <h3>Riset Kata Kunci</h3>
+                <p>Google Keyword Planner, Ahrefs, dan Ubersuggest dapat membantu mencari kata kunci yang sesuai dengan topik konten.</p>
+            </div>
+
+            <div class="card">
+                <h3>Mengikuti Tren</h3>
+                <p>Google Trends dan media sosial dapat digunakan untuk melihat topik yang sedang banyak dibicarakan.</p>
+            </div>
+
+            <div class="card">
+                <h3>Evaluasi Insight</h3>
+                <p>Periksa performa konten sebelumnya untuk mengetahui jenis postingan yang paling menarik perhatian audiens.</p>
+            </div>
+        </div>
+
+        <div class="section-title" style="margin-top:45px">
+            <div class="section-label">04 • Strategi</div>
+            <h2>Strategi Membuat Content</h2>
+        </div>
+
+        <div class="business-grid">
+            <div class="card">
+                <div class="card-number">01</div>
+                <h3>Tentukan Tujuan</h3>
+                <p>Tentukan apakah konten bertujuan meningkatkan brand awareness, engagement, traffic, atau konversi.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-number">02</div>
+                <h3>Kenali Target Audience</h3>
+                <p>Sesuaikan isi, bahasa, dan format konten dengan karakteristik serta kebutuhan target audiens.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-number">03</div>
+                <h3>Analisis Tren dan SEO</h3>
+                <p>Gunakan riset kata kunci dan tren untuk memilih topik yang relevan serta berpotensi ditemukan melalui mesin pencari.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-number">04</div>
+                <h3>Buat Content Pillar</h3>
+                <p>Tentukan tiga sampai lima topik utama agar konten konsisten dan memiliki fokus yang jelas.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-number">05</div>
+                <h3>Susun Kalender Konten</h3>
+                <p>Buat jadwal publikasi agar konten dapat diterbitkan secara rutin dan terencana.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-number">06</div>
+                <h3>Evaluasi dan Optimasi</h3>
+                <p>Gunakan data performa untuk memperbaiki konten dan menyesuaikan strategi berikutnya.</p>
+            </div>
+        </div>
+
+        <div class="card material-card" style="margin-top:18px">
+            <h3>Ciri-Ciri Content yang Baik</h3>
+            <ul class="small-list">
+                <li>Menarik, orisinal, dan informatif.</li>
+                <li>Judul sesuai dengan isi dan tidak menyesatkan.</li>
+                <li>Menjawab pertanyaan atau kebutuhan audiens.</li>
                 <li>Menggunakan bahasa yang mudah dipahami.</li>
-                <li>Memakai gambar atau video yang relevan.</li>
-                <li>Diperbarui secara rutin dan mencantumkan sumber informasi.</li>
+                <li>Menyajikan informasi yang akurat dan mencantumkan sumber bila diperlukan.</li>
+                <li>Diperbarui secara rutin agar tetap relevan.</li>
             </ul>
         </div>
 
         <div class="card material-card">
-            <h3>Etika Membuat Konten</h3>
-            <ul>
+            <h3>Etika Membuat Content</h3>
+            <ul class="small-list">
                 <li>Menyampaikan informasi secara jujur dan berdasarkan fakta.</li>
-                <li>Tidak menyebarkan hoaks, fitnah, atau informasi yang belum jelas kebenarannya.</li>
-                <li>Tidak membuat konten sadis atau cabul.</li>
-                <li>Tidak melakukan diskriminasi berdasarkan SARA, jenis kelamin, atau bahasa.</li>
-                <li>Menghormati martabat dan kondisi orang lain.</li>
+                <li>Tidak menyebarkan hoaks, fitnah, atau informasi yang belum terverifikasi.</li>
+                <li>Tidak membuat konten yang mengandung diskriminasi atau merendahkan orang lain.</li>
+                <li>Menghormati perbedaan dan menjaga martabat setiap orang.</li>
+                <li>Menghindari konten sadis atau cabul.</li>
             </ul>
         </div>
 
-        <div class="section-title" style="margin-top: 50px;">
-            <div class="section-label">4.3 • Blog</div>
-            <h2>Mengenal Blog dan Blogger</h2>
+        <div class="section-title" style="margin-top:45px">
+            <div class="section-label">05 • Mengenal Blog</div>
+            <h2>Blog dan Blogger</h2>
         </div>
 
         <div class="topic-grid">
             <div class="card topic-card">
                 <h3>Pengertian Blog</h3>
-                <p>Blog adalah website yang berisi tulisan, video, foto, atau tautan. Postingan biasanya ditampilkan mulai dari yang terbaru.</p>
+                <p>Blog adalah website yang berisi konten personal berupa artikel, video, foto, atau tautan ke website lain. Konten di dalam blog disebut postingan dan biasanya diurutkan dari yang terbaru.</p>
             </div>
+
             <div class="card topic-card">
-                <h3>Platform Blog</h3>
-                <p>Beberapa platform blog yang tersedia adalah Blogger, WordPress.com, Tumblr, Wix, Medium, Weebly, LiveJournal, Jimdo, SimpleSite, dan Svbtle.</p>
+                <h3>Platform Blog Gratis</h3>
+                <p>Beberapa penyedia blog antara lain Blogger.com, WordPress.com, Tumblr, Wix, Medium, Weebly, LiveJournal, Jimdo, SimpleSite, dan Svbtle.</p>
             </div>
+
             <div class="card topic-card">
                 <h3>Kelebihan Blogger</h3>
-                <p>Blogger terintegrasi dengan Google Account dan dapat digunakan secara gratis untuk membuat serta mengelola blog.</p>
+                <p>Blogger terintegrasi dengan Google Account, tersedia secara gratis, dan memungkinkan pengguna mengelola beberapa blog dalam satu akun.</p>
             </div>
+
             <div class="card topic-card">
-                <h3>Membuat Blog</h3>
-                <p>Login menggunakan akun Google, tentukan nama tampilan, klik New Blog, masukkan judul dan alamat blog, lalu pilih tema.</p>
+                <h3>Fungsi Blog untuk Bisnis</h3>
+                <p>Blog dapat digunakan untuk membagikan informasi, menjelaskan produk, memberikan edukasi, dan mendatangkan pengunjung ke website bisnis.</p>
             </div>
         </div>
 
-        <div class="section-title" style="margin-top: 50px;">
-            <div class="section-label">Publikasi Konten</div>
-            <h2>Cara Membuat Postingan di Blogger</h2>
+        <div class="section-title" style="margin-top:45px">
+            <div class="section-label">06 • Praktik</div>
+            <h2>Cara Membuat Blog di Blogger</h2>
         </div>
 
         <div class="grid">
             <div class="card">
                 <div class="card-number">01</div>
-                <h3>New Post</h3>
-                <p>Buka dashboard Blogger dan klik New Post untuk mulai menulis artikel.</p>
+                <h3>Login</h3>
+                <p>Buka Blogger.com dan masuk menggunakan Google Account.</p>
             </div>
+
             <div class="card">
                 <div class="card-number">02</div>
-                <h3>Tulis Artikel</h3>
-                <p>Isi judul dan artikel dengan bahasa yang mudah dipahami. Judul sebaiknya menarik, informatif, dan idealnya kurang dari 60 karakter.</p>
+                <h3>Atur Nama Tampilan</h3>
+                <p>Isi Display Name, kemudian lanjutkan ke halaman Blogger.</p>
             </div>
+
             <div class="card">
                 <div class="card-number">03</div>
-                <h3>Tambahkan Label</h3>
-                <p>Masukkan label yang sesuai dengan topik artikel. Label berfungsi sebagai kata kunci dan dapat dipisahkan menggunakan koma.</p>
-            </div>
-            <div class="card">
-                <div class="card-number">04</div>
-                <h3>Publish</h3>
-                <p>Periksa kembali isi artikel, lalu klik Publish agar postingan diterbitkan di blog.</p>
+                <h3>Buat Blog Baru</h3>
+                <p>Klik New Blog, masukkan judul blog dan alamat yang diinginkan, lalu pilih tema.</p>
             </div>
         </div>
 
-        <div class="section-title" style="margin-top: 50px;">
+        <div class="section-title" style="margin-top:45px">
+            <div class="section-label">07 • Publikasi</div>
+            <h2>Cara Membuat Postingan</h2>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <div class="card-number">01</div>
+                <h3>Klik New Post</h3>
+                <p>Buka dashboard Blogger dan pilih New Post untuk membuat artikel baru.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-number">02</div>
+                <h3>Tulis Judul dan Artikel</h3>
+                <p>Gunakan judul yang menarik, informatif, dan idealnya kurang dari 60 karakter. Isi artikel harus sesuai dengan judul dan menjawab kebutuhan pembaca.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-number">03</div>
+                <h3>Tambahkan Label</h3>
+                <p>Label berfungsi sebagai kata kunci atau kategori yang berkaitan dengan isi artikel. Pisahkan beberapa label menggunakan koma.</p>
+            </div>
+
+            <div class="card">
+                <div class="card-number">04</div>
+                <h3>Publish</h3>
+                <p>Periksa kembali artikel, lalu klik Publish untuk menerbitkan konten ke halaman blog.</p>
+            </div>
+        </div>
+
+        <div class="section-title" style="margin-top:45px">
             <div class="section-label">Kesimpulan</div>
             <h2>Kesimpulan Pertemuan 4</h2>
         </div>
 
         <div class="future">
             <p>
-                Konten penting untuk menarik pengunjung dan mendukung perkembangan
-                bisnis digital. Pembuatan konten perlu memperhatikan tujuan,
-                target audiens, riset kata kunci, tren, dan jadwal publikasi.
-                Konten yang baik harus menarik, akurat, mudah dipahami, serta
-                mengikuti etika. Blog menjadi salah satu media untuk membagikan
-                informasi, sedangkan Blogger menyediakan fasilitas untuk membuat
-                blog secara gratis menggunakan akun Google.
+                Berdasarkan materi pertemuan 4, content merupakan salah satu hal
+                penting untuk menjalankan bisnis internet karena dapat menarik
+                pengunjung dan membantu memperkenalkan produk. Konten dapat dibuat
+                melalui blog, media sosial, YouTube, dan platform lainnya. Agar
+                efektif, konten perlu direncanakan berdasarkan target audiens,
+                tujuan, riset kata kunci, dan tren. Konten juga harus menarik,
+                mudah dipahami, akurat, serta mengikuti etika publikasi. Blogger
+                menjadi salah satu pilihan untuk membuat blog gratis menggunakan
+                Google Account. Pengguna dapat membuat blog, menulis artikel,
+                menambahkan label, dan menerbitkan postingan melalui dashboard.
             </p>
         </div>
+
     </div>
 </section>
+<!-- AKHIR PERTEMUAN 4 -->
